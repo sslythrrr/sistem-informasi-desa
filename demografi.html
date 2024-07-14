@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Demografi Desa Tegal - Kecamatan Kemang Kabupaten Bogor</title>
+    <title>Demografi Desa Tegal</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
@@ -45,7 +45,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html#kegiatan">Kegiatan</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#layanan">Layanan</a></li>
                     <li class="nav-item"><a class="nav-link" href="index.html#berita">Berita</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#lokasi">Lokasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#lokasi">Lokasi</a></li>
                 </ul>
             </div>
         </div>
@@ -54,8 +54,8 @@
     <section id="demografi" class="py-5" style="background-color: #f8f9fa;">
     <div class="container" style="padding-top: 40px;">
         
-        <div class="row g-4">
-            <div class="col-md-6">
+        <div class="row g-8">
+            <div class="col-md-6 col-lg-6">
                 <div class="card h-100 shadow-sm">
                     <div class="card-header bg-primary text-white">
                         <h3 class="card-title h5 mb-0">Populasi dan Keluarga</h3>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-6 col-lg-6">
                 <div class="card h-100 shadow-sm">
                     <div class="card-header bg-success text-white">
                         <h3 class="card-title h5 mb-0">Pekerjaan Utama</h3>
@@ -120,7 +120,7 @@
                 </div>
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-6 col-lg-6">
                 <div class="card h-100 shadow-sm">
                     <div class="card-header bg-info text-white">
                         <h3 class="card-title h5 mb-0">Tingkat Pendidikan</h3>
@@ -131,7 +131,7 @@
                 </div>
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-6 col-lg-6">
                 <div class="card h-100 shadow-sm">
                     <div class="card-header bg-warning text-dark">
                         <h3 class="card-title h5 mb-0">Komposisi Usia</h3>
@@ -211,13 +211,23 @@
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false, // Tambahkan ini
             plugins: {
                 legend: {
-                    position: 'bottom',
+                    position: 'right', // Ubah posisi legend ke kanan
+                    labels: {
+                        boxWidth: 10, // Kurangi ukuran kotak warna
+                        font: {
+                            size: 10 // Kurangi ukuran font legend
+                        }
+                    }
                 },
                 title: {
                     display: true,
-                    text: 'Distribusi Tingkat Pendidikan'
+                    text: 'Distribusi Tingkat Pendidikan',
+                    font: {
+                        size: 14 // Kurangi ukuran font judul
+                    }
                 }
             }
         }
