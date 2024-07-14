@@ -35,32 +35,14 @@
         if (!isAtTop) {
           mainNav.classList.add("navbar-shrink");
           applyCollapsedStyle(mainNav);
-          if (navTextTop && navTextBottom) {
-            navTextTop.style.opacity = '0';
-            navTextTop.style.visibility = 'hidden';
-            navTextBottom.style.opacity = '0';
-            navTextBottom.style.visibility = 'hidden';
-          }
         } else {
           mainNav.classList.remove("navbar-shrink");
           removeCollapsedStyle(mainNav);
-          if (navTextTop && navTextBottom) {
-            navTextTop.style.opacity = '1';
-            navTextTop.style.visibility = 'visible';
-            navTextBottom.style.opacity = '1';
-            navTextBottom.style.visibility = 'visible';
-          }
         }
       } else {
         // Always keep navbar collapsed and styled on mobile or other pages
         mainNav.classList.add("navbar-shrink");
         applyCollapsedStyle(mainNav);
-        if (navTextTop && navTextBottom) {
-          navTextTop.style.opacity = '0';
-          navTextTop.style.visibility = 'hidden';
-          navTextBottom.style.opacity = '0';
-          navTextBottom.style.visibility = 'hidden';
-        }
       }
     };
     

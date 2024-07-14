@@ -14,7 +14,20 @@
 }
 
 
-#sejarah-desa {
+.img-kegiatan{
+  width: 100%;
+}
+
+@media (max-width: 991.98px) {
+  #mainNav {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+
+#sejarah-desa,#visimisi,#strukturdesa,#demografi {
     padding: 80px 0;
     background-color: #f8f9fa;
 }
@@ -51,4 +64,479 @@ html, body {
     text-align: center;
     padding: 10px 0;
   }
+
+  .service-heading {
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+@media (min-width: 992px) {
+    #layanan .row {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (min-width: 768px) {
+  #layanan .row > div:nth-child(n+4) {
+      margin-top: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  #layanan .row {
+      display: flex;
+      flex-wrap: wrap;
+  }
+  #layanan .row > div:nth-child(n+4) {
+      margin-top: 2rem;
+  }
+}
+
+#berita {
+  background-color: #072e48;
+  padding: 80px 0;
+}
+
+.news-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 200px);
+}
+
+.card-date {
+  color: #96c82b;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.btn-read-more {
+  color: #dbdbdb;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+.btn-read-more:hover {
+  color: #96c82b;
+}
+
+.more-news {
+  background: url("assets/img/map-image.png") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   
+}
+
+.more-news .card-body {
+  background-color: rgba(7, 46, 72, 0.8);
+  height: 100%;
+}
+
+.more-news h4 {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.btn-more-news {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #2f0a80;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-more-news:hover {
+  background-color: #96c82b;
+  color: #2f0a80;
+}
+
+@media (max-width: 991.98px) {
+  .news-card {
+    margin-bottom: 2rem;
+  }
+}
+
+#kegiatan {
+  background-color: #f8f9fa;
+}
+
+.kegiatan-card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kegiatan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.kegiatan-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.kegiatan-content {
+  padding: 1.5rem;
+}
+
+.kegiatan-content h4 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.kegiatan-content p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.btn-kegiatan {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #072e48;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-kegiatan:hover {
+  background-color: #096090;
+}
+
+@media (max-width: 767.98px) {
+  .kegiatan-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+#layanan {
+  background-color: #f0f4f8;
+  padding: 80px 0;
+}
+
+.service-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.service-item {
+  flex: 0 1 calc(33.333% - 40px);
+  max-width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.service-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+}
+
+.service-icon i {
+  font-size: 40px;
+  color: #ffffff;
+}
+
+.service-item:hover .service-icon {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+}
+
+.service-item h4 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.btn-service {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.service-item:hover .btn-service {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 991px) {
+  .service-item {
+    flex: 0 1 calc(50% - 40px);
+  }
+}
+
+@media (max-width: 767px) {
+  .service-item {
+    flex: 0 1 100%;
+  }
+}
+
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.org-level {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.org-unit {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 0 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.org-unit:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.org-unit h3, .org-unit h4, .org-unit h5 {
+  margin-bottom: 5px;
+  color: #343a40;
+}
+.org-unit p {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+.kepala-desa {
+  background-color: #e9ecef;
+  border-bottom: 3px solid #007bff;
+}
+.sekretaris-desa {
+  background-color: #e9ecef;
+  border-bottom: 3px solid #28a745;
+}
+.kaur {
+  border-bottom: 3px solid #ffc107;
+}
+.kadus {
+  border-bottom: 3px solid #17a2b8;
+}
+
+@media (max-width: 768px) {
+  .org-level {
+      flex-direction: column;
+      align-items: center;
+  }
+  .org-unit {
+      width: 80%;
+      margin-bottom: 15px;
+  }
+}
+
+#lokasi {
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+#lokasi::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: url('assets/img/bg.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.lokasi-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+  flex: 1;
+  height: 400px;
+}
+
+.batas-wilayah {
+  flex: 0 0 300px;
+  padding: 30px;
+  background: linear-gradient(135deg, #072e48, #0a4c7a);
+  color: white;
+}
+
+.batas-wilayah h3 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #ffd700;
+}
+
+.batas-wilayah ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.batas-wilayah li {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.batas-wilayah li strong {
+  display: inline-block;
+  width: 70px;
+  color: #ffd700;
+}
+
+@media (max-width: 991px) {
+  .lokasi-wrapper {
+    flex-direction: column;
+  }
+  
+  .batas-wilayah {
+    flex: 0 0 auto;
+  }
+}
+
+
+.intro-text {
+    z-index: 2;
+    text-align: left;
+    color: #fff;
+}
+
+.intro-heading {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.intro-lead-in {
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.kegiatan-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Menempatkan elemen secara horizontal di tengah */
+  justify-content: center; /* Menempatkan elemen secara vertikal di tengah */
+  text-align: justify; /* Meratakan teks kanan kiri */
+}
+
+.kegiatan-content p {
+  text-align: justify; /* Meratakan teks paragraf kanan kiri */
+  width: 100%; /* Memastikan paragraf mengambil lebar penuh */
+}
+
+.center-button {
+  margin-top: auto;
+}
+
+
+#layanan {
+  background-color: #f8f9fa;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  border: 1px solid #ced4da;
+  font-size: 16px;
+}
+
+.form-control::placeholder {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.form-control:focus {
+  border-color: #072e48;
+  box-shadow: 0 0 0 0.2rem rgba(7, 46, 72, 0.25);
+}
+
+.btn-primary {
+  background-color: #072e48;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #0a4268;
+}
+
+h2 {
+  color: #072e48;
+  font-weight: bold;
+}
