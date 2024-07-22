@@ -45,6 +45,17 @@
                     <li class="nav-item"><a class="nav-link" href="/#layanan">Layanan</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#berita">Berita</a></li>
                     <li class="nav-item"><a class="nav-link" href="/#lokasi">Lokasi</a></li>
+                    <% if (isAdmin) { %>
+                                          <li class="nav-item dropdown" id="adminDropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                              Admin
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                                              <li><a class="dropdown-item" href="/admin/dashboard">Dashboard</a></li>
+                                              <li><a class="dropdown-item" href="/admin/logout">Logout</a></li>
+                                            </ul>
+                                          </li>
+                                        <% }%>
                     </ul>
                 </div>
             </div>
@@ -75,12 +86,14 @@
             </div>
         </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <span class="copyright">Copyright © Desa Tegal 2024</span>
+        <footer class="py-3" style="color: rgb(255,255,255); background: #041d2d;padding-top:50px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <span class="copyright">Copyright © Desa Tegal 2024</span>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </footer>
 </body>
 </html>

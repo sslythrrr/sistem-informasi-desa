@@ -889,7 +889,235 @@ h2 {
 }
 }
 
-#berita-utama,#berita-terbaru{
+.berita-detail-page{
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-container {
+    margin-top: 100px;
+    max-width: 1000px;
+    flex: 1;
+}
+
+.news-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.news-image {
+    flex: 0 0 25%;
+}
+
+.news-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+.news-content {
+    flex: 0 0 65%;
+}
+
+.news-content article {
+    text-align: justify;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.news-content p {
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .news-layout {
+      flex-direction: column;
+    }
+    
+    .news-image, .news-content {
+      flex: 1 0 100%;
+    }
+    
+    .news-image {
+      margin-bottom: 20px;
+    }
+    
+    .news-content article {
+      font-size: 14px;
+    }
+    
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+    
+    .nav-item {
+      padding: 5px 0;
+    }
+    
+    .dropdown-menu {
+      text-align: center;
+    }
+  }
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+    
+    .news-content article {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .back-button {
+        display: none;
+    }
+}
+}
+
+.berita-page{
+  .news-list-card {
+    height: 100%;
+    max-height: 500px; /* Set the maximum height */
+    overflow-y: auto;
+}
+
+.news-list {
+    max-height: calc(100vh - 300px); /* Adjust based on your header/footer heights */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px; /* Adjust to ensure padding for scrollbar */
+}
+.news-list-card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.news-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.news-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item:hover {
+    background-color: #f8f9fa;
+}
+
+.news-title {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-date {
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+/* Custom scrollbar */
+.news-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.news-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.news-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+.news-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+}
+
+.kontakinfo{
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+}
+.kontak-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-top: -50px;
+}
+.kontak-info {
+    padding: 3rem;
+}
+.kontak-image {
+    background-image: url(/img/kontak/kontak.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+.contact-list i {
+    color: #007bff;
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+}
+.animated-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+.animated-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (min-width: 992px) {
+  .kontak-image {
+      min-height: 450px; /* Sesuaikan dengan kebutuhan */
+  }
+}
+}
+
+#berita-utama,#berita-terbaru,#berita-detail{
         .card-title{
             color: #39321fd8;
         }

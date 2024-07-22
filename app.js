@@ -5,6 +5,7 @@ const path = require('path');
 const multer = require('multer');
 const upload = multer({ storage: multer.memoryStorage() });
 const bcrypt = require('bcrypt');
+const sharp = require('sharp');
 
 const app = express();
 
@@ -34,15 +35,6 @@ app.use(session({
 
 // Helper function to handle index page with optional section
 function renderIndex(req, res, section = null) {
-  res.render('index', { section: section, isAdmin: req.session.isAdmin });
-}
-
-// Routes
-app.get('/', (req, res) => renderIndex(req, res));
-app.get('/index', (req, res) => renderIndex(req, res));
-app.get('/index#:section', (req, res) => renderIndex(req, res, req.params.section));
-
-function renderIndex(req, res, section = null) {
   const sql = 'SELECT id, judul, LEFT(isi, 100) AS isi_singkat, gambar, DATE_FORMAT(tanggal, "%W, %d %M %Y") AS formatted_date FROM berita ORDER BY tanggal DESC LIMIT 3';
   db.query(sql, (err, results) => {
     if (err) {
@@ -62,6 +54,25 @@ function renderIndex(req, res, section = null) {
     }
   });
 }
+
+// Image compression function
+async function compressImage(buffer, options = {}) {
+  const {
+    format = 'jpeg',
+    quality = 80,
+    width = 1000
+  } = options;
+
+  return sharp(buffer)
+    .resize({ width, withoutEnlargement: true })
+    [format]({ quality })
+    .toBuffer();
+}
+
+// Routes
+app.get('/', (req, res) => renderIndex(req, res));
+app.get('/index', (req, res) => renderIndex(req, res));
+app.get('/index#:section', (req, res) => renderIndex(req, res, req.params.section));
 
 app.post('/admin/login', (req, res) => {
   const { username, password } = req.body;
@@ -116,7 +127,6 @@ app.get('/admin/logout', (req, res) => {
   });
 });
 
-//exp
 // Dashboard route
 app.get('/admin/dashboard', (req, res) => {
   if (req.session.isAdmin) {
@@ -144,23 +154,34 @@ app.get('/admin/galeri', (req, res) => {
   });
 });
 
-// Add galeri item
-app.post('/admin/add-gallery', upload.single('image'), (req, res) => {
-  const { title } = req.body;
+// Add galeri item (with compression)
+app.post('/admin/add-gallery', upload.single('image'), async (req, res) => {
+  try {
+    const { title } = req.body;
 
-  if (!req.file) {
-    return res.status(400).json({ error: 'No image uploaded' });
-  }
-
-  const sql = 'INSERT INTO galeri (title, image_url) VALUES (?, ?)';
-  db.query(sql, [title, req.file.buffer], (err, result) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Internal Server Error' });
-    } else {
-      res.redirect('/admin/dashboard');
+    if (!req.file) {
+      return res.status(400).json({ error: 'No image uploaded' });
     }
-  });
+
+    const compressedImage = await compressImage(req.file.buffer, {
+      format: 'jpeg',
+      quality: 80,
+      width: 1000
+    });
+
+    const sql = 'INSERT INTO galeri (title, image_url) VALUES (?, ?)';
+    db.query(sql, [title, compressedImage], (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+      } else {
+        res.redirect('/admin/dashboard');
+      }
+    });
+  } catch (error) {
+    console.error('Error processing image:', error);
+    res.status(500).json({ error: 'Error processing image' });
+  }
 });
 
 // Delete galeri item
@@ -276,7 +297,6 @@ app.get('/admin/berita/:id', (req, res) => {
   });
 });
 
-
 app.get('/berita', (req, res) => {
   const sql = 'SELECT id, judul, LEFT(isi, 200) AS isi_singkat, gambar, tanggal FROM berita ORDER BY tanggal DESC';
   db.query(sql, (err, results) => {
@@ -294,20 +314,33 @@ app.get('/berita', (req, res) => {
   });
 });
 
-// Add berita
-app.post('/admin/add-berita', upload.single('gambar'), (req, res) => {
-  const { judul, isi } = req.body;
-  const gambar = req.file ? req.file.buffer : null;
+// Add berita (with compression)
+app.post('/admin/add-berita', upload.single('gambar'), async (req, res) => {
+  try {
+    const { judul, isi } = req.body;
+    let compressedImage = null;
 
-  const sql = 'INSERT INTO berita (judul, isi, gambar) VALUES (?, ?, ?)';
-  db.query(sql, [judul, isi, gambar], (err, result) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Internal Server Error' });
-    } else {
-      res.redirect('/admin/dashboard');
+    if (req.file) {
+      compressedImage = await compressImage(req.file.buffer, {
+        format: 'jpeg',
+        quality: 80,
+        width: 1000
+      });
     }
-  });
+
+    const sql = 'INSERT INTO berita (judul, isi, gambar) VALUES (?, ?, ?)';
+    db.query(sql, [judul, isi, compressedImage], (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+      } else {
+        res.redirect('/admin/dashboard');
+      }
+    });
+  } catch (error) {
+    console.error('Error processing berita:', error);
+    res.status(500).json({ error: 'Error processing berita' });
+  }
 });
 
 // Delete berita
@@ -346,10 +379,6 @@ app.get('/berita/:id', (req, res) => {
 // Other pages
 app.get('/sejarah', (req, res) => {
   res.render('sejarah', { isAdmin: req.session.isAdmin });
-});
-
-app.get('/berita', (req, res) => {
-  res.render('berita', { isAdmin: req.session.isAdmin });
 });
 
 app.get('/visimisi', (req, res) => {
