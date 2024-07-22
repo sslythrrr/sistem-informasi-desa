@@ -62,96 +62,128 @@
 
     <section class="page-section" id="dashboard">
         <div class="container">
-            <h2 class="text-center" style="margin-top: -30px;">Admin Dashboard</h2>
+            <h2 class="text-center" style="color: #221e12;margin-top:-20px">Admin Dashboard</h2>
             <hr class="divider" />
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card shadow-sm">
+    
+            <!-- Berita Section -->
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="card shadow">
                         <div class="card-body">
-                            <h3 class="h4 mb-3">Berita</h3>
-                            <form action="/admin/add-berita" method="POST" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="judul" placeholder="Judul Berita" required>
+                            <h2 class="card-title" style="color: #221e12;text-align: center;">Berita</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="/admin/add-berita" method="POST" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" name="judul" placeholder="Judul Berita" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" name="isi" placeholder="Isi Berita" rows="3" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="file" class="form-control" name="gambar">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Tambah Berita</button>
+                                    </form>
                                 </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" name="isi" placeholder="Isi Berita" rows="3" required></textarea>
+                                <div class="col-md-6">
+                                    <div style="max-height: 300px; overflow-y: auto;">
+                                        <ul class="list-group" id="beritaList">
+                                            <!-- Daftar berita akan ditampilkan di sini -->
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <input type="file" class="form-control" name="gambar">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Tambah Berita</button>
-                            </form>
-                            <hr>
-                            <h4>Daftar Berita</h4>
-                            <ul class="list-group" id="beritaList">
-                                <!-- Daftar berita akan ditampilkan di sini -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h3 class="h4 mb-3">Galeri</h3>
-                            <form action="/admin/add-gallery" method="POST" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                    <input type="file" class="form-control" name="image" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="title" placeholder="Judul Gambar" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Tambah Gambar</button>
-                            </form>
-                            <hr>
-                            <h4>Daftar Gambar</h4>
-                            <ul class="list-group" id="galeriList">
-                                <!-- Daftar gambar akan ditampilkan di sini -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h3 class="h4 mb-3">Pengumuman</h3>
-                            <form action="/admin/add-announcement" method="POST">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="title" placeholder="Judul Pengumuman" required>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" name="content" placeholder="Isi Pengumuman" rows="3" required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Tambah Pengumuman</button>
-                            </form>
-                            <hr>
-                            <h4>Daftar Pengumuman</h4>
-                            <ul class="list-group" id="announcementList">
-                                <!-- Daftar pengumuman akan ditampilkan di sini -->
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row mt-4">
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="card shadow-sm">
+    
+            <!-- Galeri Section -->
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="card shadow">
                         <div class="card-body">
-                            <h3 class="h4 mb-3">Daftar Aspirasi</h3>
-                            <ul class="list-group" id="aspirationList">
-                                <!-- Daftar aspirasi akan ditampilkan di sini -->
-                            </ul>
+                            <h2 class="card-title" style="color: #221e12;text-align: center;">Galeri</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="/admin/add-gallery" method="POST" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <input type="file" class="form-control" name="image" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" name="title" placeholder="Judul Gambar" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Tambah Gambar</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="max-height: 300px; overflow-y: auto;">
+                                        <ul class="list-group" id="galeriList">
+                                            <!-- Daftar gambar akan ditampilkan di sini -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 mb-4">
-                    <div class="card shadow-sm">
+            </div>
+    
+            <!-- Pengumuman Section -->
+            <div class="row mb-5">
+                <div class="col-lg-12">
+                    <div class="card shadow">
                         <div class="card-body">
-                            <h3 class="h4 mb-3">Daftar Pengajuan Surat</h3>
-                            <ul class="list-group" id="letterList">
-                                <!-- Daftar pengajuan surat akan ditampilkan di sini -->
-                            </ul>
+                            <h2 class="card-title" style="color: #221e12;text-align: center;">Pengumuman</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="/admin/add-announcement" method="POST">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" name="title" placeholder="Judul Pengumuman" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" name="content" placeholder="Isi Pengumuman" rows="3" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Tambah Pengumuman</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="max-height: 300px; overflow-y: auto;">
+                                        <ul class="list-group" id="announcementList">
+                                            <!-- Daftar pengumuman akan ditampilkan di sini -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Aspirasi dan Pengajuan Surat Section -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card shadow" style="background-color: #f8f9fa;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="card-title" style="color: #221e12;text-align: center;">Daftar Aspirasi</h3>
+                                    <div style="max-height: 300px; overflow-y: auto;">
+                                        <ul class="list-group" id="aspirationList">
+                                            <!-- Daftar aspirasi akan ditampilkan di sini -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="card-title" style="color: #221e12;text-align: center;">Daftar Pengajuan Surat</h3>
+                                    <div style="max-height: 300px; overflow-y: auto;">
+                                        <ul class="list-group" id="letterList">
+                                            <!-- Daftar pengajuan surat akan ditampilkan di sini -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
