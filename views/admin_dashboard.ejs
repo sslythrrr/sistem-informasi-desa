@@ -105,7 +105,7 @@
                             </form>
                             <hr>
                             <h4>Daftar Gambar</h4>
-                            <ul class="list-group" id="galleryList">
+                            <ul class="list-group" id="galeriList">
                                 <!-- Daftar gambar akan ditampilkan di sini -->
                             </ul>
                         </div>
@@ -163,30 +163,30 @@
     <script src="/js/agency.js"></script>
     <script>
         // Fungsi untuk memuat data galeri
-        function loadGallery() {
-            fetch('/admin/gallery')
+        function loadgaleri() {
+            fetch('/admin/galeri')
                 .then(response => response.json())
                 .then(data => {
-                    const galleryList = document.getElementById('galleryList');
-                    galleryList.innerHTML = '';
+                    const galeriList = document.getElementById('galeriList');
+                    galeriList.innerHTML = '';
                     data.forEach(item => {
                         const li = document.createElement('li');
                         li.className = 'list-group-item d-flex justify-content-between align-items-center';
                         li.innerHTML = `
                             <div class="d-flex align-items-center">
-                                <img src="data:image/jpeg;base64,${item.image_url}" alt="Gallery Image" style="width: 100px; height: 100px; object-fit: cover; margin-right: 10px;">
+                                <img src="data:image/jpeg;base64,${item.image_url}" alt="galeri Image" style="width: 100px; height: 100px; object-fit: cover; margin-right: 10px;">
                                 <strong>${item.title}</strong>
                             </div>
-                            <button class="btn btn-danger btn-sm" onclick="deleteGalleryItem(${item.id})">Hapus</button>
+                            <button class="btn btn-danger btn-sm" onclick="deletegaleriItem(${item.id})">Hapus</button>
                         `;
-                        galleryList.appendChild(li);
+                        galeriList.appendChild(li);
                     });
                 });
         }
 
         // Fungsi untuk memuat data pengumuman
         function loadAnnouncements() {
-            fetch('/admin/announcements')
+            fetch('/admin/pengumuman')
                 .then(response => response.json())
                 .then(data => {
                     const announcementList = document.getElementById('announcementList');
@@ -207,8 +207,8 @@
         }
 
         // Fungsi untuk memuat data aspirasi
-        function loadAspirations() {
-            fetch('/admin/aspirations')
+        function loadaspirasi() {
+            fetch('/admin/aspirasi')
                 .then(response => response.json())
                 .then(data => {
                     const aspirationList = document.getElementById('aspirationList');
@@ -284,13 +284,13 @@
         }
 
         // Fungsi untuk menghapus item galeri
-        function deleteGalleryItem(id) {
+        function deletegaleriItem(id) {
             if (confirm('Apakah Anda yakin ingin menghapus gambar ini?')) {
-                fetch(`/admin/delete-gallery/${id}`, { method: 'DELETE' })
+                fetch(`/admin/delete-galeri/${id}`, { method: 'DELETE' })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            loadGallery();
+                            loadgaleri();
                         } else {
                             alert('Gagal menghapus gambar');
                         }
@@ -316,9 +316,9 @@
         // Memuat semua data saat halaman dimuat
         document.addEventListener('DOMContentLoaded', () => {
             loadBerita();
-            loadGallery();
+            loadgaleri();
             loadAnnouncements();
-            loadAspirations();
+            loadaspirasi();
             loadLetters();
         });
     </script>

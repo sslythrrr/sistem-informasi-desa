@@ -760,7 +760,7 @@ h2 {
 }
 
 #pengumuman{
-  .announcements-section {
+  .pengumuman-section {
     background-color: #f8f9fa;
 }
 
@@ -773,11 +773,11 @@ h2 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.announcement-item .card {
+.pengumuman-item .card {
     border-radius: 10px;
 }
 
-.announcement-item .card-title {
+.pengumuman-item .card-title {
     color: #072e48;
 }
 
@@ -812,7 +812,7 @@ h2 {
 }
 
 #galeri{
-  .gallery-item {
+  .galeri-item {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -821,13 +821,13 @@ h2 {
     aspect-ratio: 1 / 1; /* Membuat rasio aspek 1:1 (persegi) */
 }
 
-.gallery-item img {
+.galeri-item img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Memastikan gambar menutupi seluruh area tanpa distorsi */
 }
 
-.gallery-caption {
+.galeri-caption {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -839,7 +839,7 @@ h2 {
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover .gallery-caption {
+.galeri-item:hover .galeri-caption {
     transform: translateY(0);
 }
 

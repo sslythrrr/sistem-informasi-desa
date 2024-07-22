@@ -13,7 +13,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'village_website'
+  database: 'desa_tegal'
 });
 
 db.connect((err) => {
@@ -126,9 +126,9 @@ app.get('/admin/dashboard', (req, res) => {
   }
 });
 
-// Get gallery items
-app.get('/admin/gallery', (req, res) => {
-  const sql = 'SELECT * FROM gallery ORDER BY created_at DESC';
+// Get galeri items
+app.get('/admin/galeri', (req, res) => {
+  const sql = 'SELECT * FROM galeri ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
     if (err) {
       console.error(err);
@@ -144,7 +144,7 @@ app.get('/admin/gallery', (req, res) => {
   });
 });
 
-// Add gallery item
+// Add galeri item
 app.post('/admin/add-gallery', upload.single('image'), (req, res) => {
   const { title } = req.body;
 
@@ -152,7 +152,7 @@ app.post('/admin/add-gallery', upload.single('image'), (req, res) => {
     return res.status(400).json({ error: 'No image uploaded' });
   }
 
-  const sql = 'INSERT INTO gallery (title, image_url) VALUES (?, ?)';
+  const sql = 'INSERT INTO galeri (title, image_url) VALUES (?, ?)';
   db.query(sql, [title, req.file.buffer], (err, result) => {
     if (err) {
       console.error(err);
@@ -163,9 +163,9 @@ app.post('/admin/add-gallery', upload.single('image'), (req, res) => {
   });
 });
 
-// Delete gallery item
-app.delete('/admin/delete-gallery/:id', (req, res) => {
-  const sql = 'DELETE FROM gallery WHERE id = ?';
+// Delete galeri item
+app.delete('/admin/delete-galeri/:id', (req, res) => {
+  const sql = 'DELETE FROM galeri WHERE id = ?';
   db.query(sql, [req.params.id], (err, result) => {
     if (err) {
       console.error(err);
@@ -176,9 +176,9 @@ app.delete('/admin/delete-gallery/:id', (req, res) => {
   });
 });
 
-// Get announcements
-app.get('/admin/announcements', (req, res) => {
-  const sql = 'SELECT * FROM announcements ORDER BY created_at DESC';
+// Get pengumuman
+app.get('/admin/pengumuman', (req, res) => {
+  const sql = 'SELECT * FROM pengumuman ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
     if (err) {
       console.error(err);
@@ -192,7 +192,7 @@ app.get('/admin/announcements', (req, res) => {
 // Add announcement
 app.post('/admin/add-announcement', (req, res) => {
   const { title, content } = req.body;
-  const sql = 'INSERT INTO announcements (title, content) VALUES (?, ?)';
+  const sql = 'INSERT INTO pengumuman (title, content) VALUES (?, ?)';
   db.query(sql, [title, content], (err, result) => {
     if (err) {
       console.error(err);
@@ -204,8 +204,8 @@ app.post('/admin/add-announcement', (req, res) => {
 });
 
 // Delete announcement
-app.delete('/admin/delete-announcement/:id', (req, res) => {
-  const sql = 'DELETE FROM announcements WHERE id = ?';
+app.delete('/admin/delete-pengumuman/:id', (req, res) => {
+  const sql = 'DELETE FROM pengumuman WHERE id = ?';
   db.query(sql, [req.params.id], (err, result) => {
     if (err) {
       console.error(err);
@@ -216,9 +216,9 @@ app.delete('/admin/delete-announcement/:id', (req, res) => {
   });
 });
 
-// Get aspirations
-app.get('/admin/aspirations', (req, res) => {
-  const sql = 'SELECT * FROM aspirations ORDER BY created_at DESC';
+// Get aspirasi
+app.get('/admin/aspirasi', (req, res) => {
+  const sql = 'SELECT * FROM aspirasi ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
     if (err) {
       console.error(err);
@@ -389,16 +389,16 @@ app.get('/aspirasi', (req, res) => {
 
 app.post('/aspirasi', (req, res) => {
   const { name, email, message } = req.body;
-  const sql = 'INSERT INTO aspirations (name, email, message) VALUES (?, ?, ?)';
+  const sql = 'INSERT INTO aspirasi (name, email, message) VALUES (?, ?, ?)';
   db.query(sql, [name, email, message], (err, result) => {
     if (err) throw err;
     res.redirect('/aspirasi');
   });
 });
 
-// Gallery routes
+// galeri routes
 app.get('/galeri', (req, res) => {
-  const sql = 'SELECT * FROM gallery ORDER BY created_at DESC';
+  const sql = 'SELECT * FROM galeri ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
     if (err) throw err;
     // Convert BLOB data to base64
@@ -413,10 +413,10 @@ app.get('/galeri', (req, res) => {
 
 // Announcement routes
 app.get('/pengumuman', (req, res) => {
-  const sql = 'SELECT * FROM announcements ORDER BY created_at DESC';
+  const sql = 'SELECT * FROM pengumuman ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
     if (err) throw err;
-    res.render('pengumuman', { announcements: results, isAdmin: req.session.isAdmin });
+    res.render('pengumuman', { pengumuman: results, isAdmin: req.session.isAdmin });
   });
 });
 

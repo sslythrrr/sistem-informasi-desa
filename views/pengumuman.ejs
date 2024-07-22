@@ -64,22 +64,22 @@
         </nav>
 
         <div class="content">
-            <div id="pengumuman" class="section announcements-section py-4">
+            <div id="pengumuman" class="section pengumuman-section py-4">
                 <div class="container" style="padding-top: 70px;">
                     <h2 class="text-center mb-4">Pengumuman Desa</h2>
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <div class="announcement-list">
-                                <% announcements.forEach(announcement => { %>
-                                    <div class="announcement-item mb-3">
+                            <div class="pengumuman-list">
+                                <% pengumuman.forEach(pengumuman => { %>
+                                    <div class="pengumuman-item mb-3">
                                         <div class="card border-0 shadow-sm">
                                             <div class="card-body p-3">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <h5 class="card-title mb-0"><%= announcement.title %></h5>
+                                                    <h5 class="card-title mb-0"><%= pengumuman.title %></h5>
                                                    
-                                                <span><%= announcement.created_at.toLocaleDateString() %></span>
+                                                <span><%= pengumuman.created_at.toLocaleDateString() %></span>
                                                 </div>
-                                                <p><%= announcement.content %></p>
+                                                <p><%= pengumuman.content %></p>
                                             </div>
                                         </div>
                                     </div>
