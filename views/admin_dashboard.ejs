@@ -333,7 +333,7 @@
         // Fungsi untuk menghapus pengumuman
         function deleteAnnouncement(id) {
             if (confirm('Apakah Anda yakin ingin menghapus pengumuman ini?')) {
-                fetch(`/admin/delete-announcement/${id}`, { method: 'DELETE' })
+                fetch(`/admin/delete-pengumuman/${id}`, { method: 'DELETE' })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
