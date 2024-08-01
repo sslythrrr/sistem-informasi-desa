@@ -138,15 +138,15 @@ app.get('/admin/dashboard', (req, res) => {
 
 // Get galeri items
 app.get('/admin/galeri', (req, res) => {
-  const sql = 'SELECT * FROM galeri ORDER BY created_at DESC';
+  const sql = 'SELECT id, title, galeri_img, kategori, created_at FROM galeri ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
     if (err) {
       console.error(err);
       res.status(500).json({ error: 'Internal Server Error' });
     } else {
       results.forEach(result => {
-        if (result.image_url) {
-          result.image_url = result.image_url.toString('base64');
+        if (result.galeri_img) {
+          result.galeri_img = result.galeri_img.toString('base64');
         }
       });
       res.json(results);
@@ -157,7 +157,7 @@ app.get('/admin/galeri', (req, res) => {
 // Add galeri item (with compression)
 app.post('/admin/add-gallery', upload.single('image'), async (req, res) => {
   try {
-    const { title } = req.body;
+    const { title, kategori } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ error: 'No image uploaded' });
@@ -169,8 +169,8 @@ app.post('/admin/add-gallery', upload.single('image'), async (req, res) => {
       width: 1000
     });
 
-    const sql = 'INSERT INTO galeri (title, image_url) VALUES (?, ?)';
-    db.query(sql, [title, compressedImage], (err, result) => {
+    const sql = 'INSERT INTO galeri (title, galeri_img, kategori) VALUES (?, ?, ?)';
+    db.query(sql, [title, compressedImage, kategori], (err, result) => {
       if (err) {
         console.error(err);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -427,16 +427,33 @@ app.post('/aspirasi', (req, res) => {
 
 // galeri routes
 app.get('/galeri', (req, res) => {
-  const sql = 'SELECT * FROM galeri ORDER BY created_at DESC';
+  const sql = 'SELECT id, title, galeri_img, kategori FROM galeri ORDER BY created_at DESC';
   db.query(sql, (err, results) => {
-    if (err) throw err;
-    // Convert BLOB data to base64
-    results.forEach(result => {
-      if (result.image_url) {
-        result.image_url = result.image_url.toString('base64');
-      }
-    });
-    res.render('galeri', { images: results, isAdmin: req.session.isAdmin });
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    } else {
+      results.forEach(result => {
+        if (result.galeri_img) {
+          result.galeri_img = result.galeri_img.toString('base64');
+        }
+      });
+      res.render('galeri', { images: results, isAdmin: req.session.isAdmin });
+    }
+  });
+});
+
+//galeri categories
+app.get('/galeri/categories', (req, res) => {
+  const sql = 'SELECT DISTINCT kategori FROM galeri';
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      const categories = results.map(row => row.kategori);
+      res.json(categories);
+    }
   });
 });
 
