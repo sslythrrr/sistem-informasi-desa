@@ -1,6 +1,7 @@
 #  Village Information System 
 ## -- Sistem Informasi Desa --
 A web-based application designed to manage and display village information and services online. It aims to improve communication and service delivery between the village administration and its residents.
+This project originally based on my case study (KKN) at Desa Tegal, Kemang, Kabupaten Bogor, Jawa Barat, Indonesia.
 
 ---
 
@@ -8,7 +9,7 @@ A web-based application designed to manage and display village information and s
 
 * **News & Announcements**: Publish and display the latest news and announcements for the village residents.
 * **Citizen Feedback (Aspirasi)**: Allow residents to submit feedback, suggestions, or complaints.
-* **Online Letter Requests (Pengajuan Surat)**: Provide a facility for residents to request official letters online.
+* **Letter Requests (Pengajuan Surat)**: Provide a facility for residents to request official letters online.
 * **Village Profile**: Display essential information about the village, including:
     * History (Sejarah)
     * Vision & Mission (Visi Misi)
