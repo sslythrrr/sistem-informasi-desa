@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Website Desa Tegal Kecamatan Kemang Kabupaten Bogor</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/css/aos.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <link rel="stylesheet" href="/css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo_pemkab_bogor.png">
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
+    <div class="floating-socials">
+        <a href="https://facebook.com/" target="_blank" class="social-icon facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/pemerintah_desa_tegal/" target="_blank" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/" target="_blank" class="social-icon twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://tiktok.com/" target="_blank" class="social-icon tiktok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    </div>
+    <section id="header"  style="margin-top: -100px; padding-top: 100px;padding-bottom:0px">
+        <header class="masthead">
+            <div class="overlay">
+                <div class="container" id="header">
+                    <div class="intro-text">
+                        <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="mainNav" style="color: rgb(255,131,131);background: #072e48;border-color: var(--bs-code-color);--bs-primary: #221e12;--bs-primary-rgb: 34,30,18;">
+                            <div class="container">
+                                <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+                                <div class="d-flex align-items-center">
+                                    <img id="navLogo" class="img-fluid" src="/img/logo_pemkab_bogor.png" width="40" height="40">
+                                    <div class="ms-2 nav-text-container">
+                                        <div id="navTextTop">KECAMATAN KEMANG</div>
+                                        <div id="navTextBottom">KABUPATEN BOGOR</div>
+                                    </div>
+                                </div>
+                                <div class="collapse navbar-collapse" id="navbarResponsive">
+                                    <ul class="navbar-nav ms-auto text-uppercase">
+                                        <li class="nav-item dropdown profile-dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
+                                                Profil Desa
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <li><a class="dropdown-item" href="/sejarah" data-target="sejarah">Sejarah Desa</a></li>
+                                                <li><a class="dropdown-item" href="/visimisi" data-target="visimisi">Visi dan Misi</a></li>
+                                                <li><a class="dropdown-item" href="/struktur" data-target="struktur">Struktur Organisasi</a></li>
+                                                <li><a class="dropdown-item" href="/demografi" data-target="demografi">Demografi</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item"><a class="nav-link" href="#header">Beranda</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#kegiatan">Kegiatan</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#berita">Berita</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#lokasi">Lokasi</a></li>
+                                        <% if (isAdmin) { %>
+                                          <li class="nav-item dropdown" id="adminDropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                              Admin
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                                              <li><a class="dropdown-item" href="/admin/dashboard">Dashboard</a></li>
+                                              <li><a class="dropdown-item" href="/admin/logout">Logout</a></li>
+                                            </ul>
+                                          </li>
+                                        <% } else { %>
+                                          <li class="nav-item" id="loginButton">
+                                            <a class="nav-link" href="#" id="adminLoginBtn">
+                                              <i class="fas fa-key"></i>
+                                            </a>
+                                          </li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="intro-heading"><span>D</span><span>E</span><span>S</span><span>A</span> <span>T</span><span>E</span><span>G</span><span>A</span><span>L</span></div>
+                        <div class="intro-lead-in"><span>Kecamatan Kemang, Kabupaten Bogor</span></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section id="kegiatan" class="py-5">
+        <div class="container" style="margin-bottom: 100px;margin-top: 40px;padding-bottom:50px">
+          <div class="row mb-5">
+            <div class="col-lg-6 mx-auto text-center">
+              <h2 class="text-uppercase mb-3">Kegiatan Masyarakat</h2>
+            </div>
+          </div>
+          
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up">
+              <div class="kegiatan-card">
+                <div class="kegiatan-image" style="background-image: url('/img/kegiatan/umkm.jpg');"></div>
+                <div class="kegiatan-content">
+                  <h4 style="padding-bottom: 30px;">UMKM</h4>
+                  <a href="https://dinkop-umkm.jatengprov.go.id/" target="_blank" class="btn-kegiatan">Kunjungi</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="kegiatan-card">
+                <div class="kegiatan-image" style="background-image: url('/img/kegiatan/peternakan.jpeg');"></div>
+                <div class="kegiatan-content">
+                  <h4 style="padding-bottom: 30px;">Peternakan</h4>
+                  <a href="peternakan.desategal.my.id" class="btn-kegiatan">Kunjungi</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="kegiatan-card">
+                <div class="kegiatan-image" style="background-image: url('/img/kegiatan/perkebunan.jpg');"></div>
+                <div class="kegiatan-content">
+                  <h4 style="padding-bottom: 30px;">Perkebunan</h4>
+                  <a href="#kegiatanModal3" class="btn-kegiatan">Kunjungi</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="kegiatan-card">
+                <div class="kegiatan-image" style="background-image: url('/img/kegiatan/galeri.jpg');"></div>
+                <div class="kegiatan-content">
+                  <h4 style="padding-bottom: 30px;">Galeri</h4>
+                  <a href="/galeri" class="btn-kegiatan">Kunjungi</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section id="layanan" class="py-5" style="background-color: #f3f3f3;">
+        <div class="container" style="margin-bottom: 100px;margin-top: 40px;margin-bottom:120px">
+          <div class="row mb-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+              <h2 class="text-uppercase mb-3">Layanan Masyarakat</h2>
+              <p class="text-muted">Layanan yang disediakan oleh pemerintah Desa Tegal.</p>
+            </div>
+          </div>
+          <div class="service-container">
+          <div class="service-wrapper" data-aos="fade-up">
+            <div class="service-item">
+              <a href="/aspirasi">
+              <div class="service-icon">
+                <i class="far fa-comments"></i>
+              </div>
+            </a>
+              <h4>Aspirasi Masyarakat</h4>
+            </div>
+            
+            <div class="service-item">
+              <a href="/pengajuansurat">
+              <div class="service-icon">
+                <i class="fa fa-envelope"></i>
+              </div>
+            </a>
+              <h4>Pengajuan Surat</h4>
+            </div>
+            
+            <div class="service-item">
+              <a href="/kontak">
+              <div class="service-icon">
+                <i class="fa fa-phone"></i>
+              </div>
+            </a>
+              <h4>Informasi Kontak</h4>
+            </div>
+            
+            <div class="service-item">
+              <a href="/pengumuman">
+              <div class="service-icon">
+                <i class="fa fa-bullhorn"></i>
+              </div>
+            </a>
+              <h4>Pengumuman Desa</h4>
+            </div>
+          </div>
+            
+        </div>
+      </section>
+    
+      <section id="berita" class="py-5">
+        <div class="container" style="margin-bottom: 100px;margin-top: 25px;">
+          <div class="row mb-5">
+            <div class="col-lg-6 mx-auto text-center">
+              <h2 class="text-white">BERITA DESA</h2>
+              <p class="text-light" style="margin-top: 10px;">Berbagai berita terkini dan kejadian yang ada di Desa Tegal.</p>
+            </div>
+          </div>
+          
+          <div class="row" style="margin-top: -25px;">
+            <% if (berita && berita.length > 0) { %>
+              <% berita.forEach((item, index) => { %>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="slide-left" data-aos-delay="<%= index * 100 %>">
+                  <div class="news-card">
+                    <img src="data:image/jpeg;base64,<%= item.gambar %>" class="card-img-top" alt="<%= item.judul %>">
+                    <div class="card-body">
+                      <p class="card-date"><%= item.formatted_date %></p>
+                      <h5 class="card-title"><%= item.judul %></h5>
+                      <p class="card-text"><%= item.isi_singkat %>...</p>
+                      <a href="/berita/<%= item.id %>" class="btn-read-more">Baca Selengkapnya</a>
+                    </div>
+                  </div>
+                </div>
+              <% }); %>
+            <% } else { %>
+              <div class="col-12">
+                <p class="text-center text-white">Belum ada berita tersedia.</p>
+              </div>
+            <% } %>
+            
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+              <div class="news-card more-news">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                  <h4 class="text-center mb-4">Baca Berita Lainnya</h4>
+                  <a href="/berita" class="btn-more-news">Lihat Semua</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="lokasi" class="py-5" style="overflow-y: hidden;">
+        <div class="container" style="margin-bottom: 100px;margin-top: 25px">
+          <div class="row mb-4">
+            <div class="col-lg-6 mx-auto text-center">
+              <h2 class="text-uppercase mb-3">Lokasi Desa Tegal</h2>
+              <p class="text-muted">Temukan Desa Tegal pada alamat dibawah</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 mb-4">
+              <div class="lokasi-wrapper" style="height: 425px;">
+                <div class="map-container">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.0509729869893!2d106.71416697451592!3d-6.492441363946296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMjknMzIuOCJTIDEwNsKwNDInNTguOSJF!5e0!3m2!1sen!2sid!4v1626146623694!5m2!1sen!2sid" width="100%" height="425" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="batas-wilayah mb-4">
+                <h3>Batas Wilayah</h3>
+                <ul class="list-unstyled">
+                  <li><i class="fas fa-chevron-right me-2"></i><strong>Barat:</strong> Desa Cibeteung Udik</li>
+                  <li><i class="fas fa-chevron-right me-2"></i><strong>Utara:</strong> Desa Jampang</li>
+                  <li><i class="fas fa-chevron-right me-2"></i><strong>Selatan:</strong> Desa Pondok Udik</li>
+                  <li><i class="fas fa-chevron-right me-2"></i><strong>Timur:</strong> Desa Pondok Udik</li>
+                </ul>
+              </div>
+              <div class="alamat-desa mb-4">
+                <h3>Kantor Desa Tegal</h3>
+                <p><i class="fas fa-map-marker-alt me-2"></i>GP48+WH3, Tegal, Kemang, Bogor Regency, West Java 16310</p>
+                <p><i class="fas fa-map me-2"></i>6°29'32.8"S 106°42'58.9"E</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <button id="backToTop" title="Back to top">↑</button>
+    <footer class="py-3" style="color: rgb(255,255,255); background: #041d2d;">
+      <div class="container">
+          <div class="row">
+              <div class="col-12 text-center">
+                  <span class="copyright">Copyright © Desa Tegal 2024</span>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+    <div id="adminLoginModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="color: aliceblue;">Admin Login</h2>
+        <form id="adminLoginForm">
+          <div class="form-group">
+            <input type="text" id="username" name="username" required placeholder="Username">
+          </div>
+          <div class="form-group">
+            <input type="password" id="password" name="password" required placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div id="loginMessage" style="margin-top: 10px; color: white;"></div>
+      </div>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/aos.min.js"></script>
+    <script src="/js/bs-init.js"></script>
+    <script src="/js/agency.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        var modal = document.getElementById("adminLoginModal");
+        var btn = document.getElementById("adminLoginBtn");
+        var span = document.getElementsByClassName("close")[0];
+        var adminDropdown = document.getElementById("adminDropdown");
+        var loginButton = document.getElementById("loginButton");
+
+        function openModal() {
+            modal.style.display = "block";
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.classList.remove('modal-open');
+        }
+
+        btn.onclick = openModal;
+
+        span.onclick = closeModal;
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        document.getElementById("adminLoginForm").onsubmit = function(e) {
+            e.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            fetch('/admin/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: username, password: password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    closeModal();
+                    adminDropdown.style.display = "block";
+                    loginButton.style.display = "none";
+                } else {
+                    alert("Login failed. Please try again.");
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        // Check login status on page load
+        fetch('/admin/check-login')
+        .then(response => response.json())
+        .then(data => {
+            if (data.isLoggedIn) {
+                adminDropdown.style.display = "block";
+                loginButton.style.display = "none";
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+          gsap.from(".intro-heading span", {
+            duration: 2.2,
+            y: 100,
+            opacity: 0,
+            ease: "power4.out",
+            stagger: 0.1
+          });
+          gsap.from(".intro-lead-in span", {
+            duration: 2.2,
+            y: 50,
+            opacity: 0,
+            ease: "power4.out",
+            delay: 0.8
+          });
+        });
+      </script>
+      <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const section = '<%= section %>';
+      if (section) {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  </script>
+
+  <!-- Script untuk handling login -->
+<script>
+  document.getElementById("adminLoginForm").onsubmit = function(e) {
+    e.preventDefault();
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    fetch('/admin/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username: username, password: password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        document.getElementById("loginMessage").innerHTML = "Login successful!";
+        document.getElementById("loginMessage").style.color = "green";
+        setTimeout(() => {
+          closeModal();
+          location.reload(); // Reload halaman untuk memperbarui navbar
+        }, 1000);
+      } else {
+        document.getElementById("loginMessage").innerHTML = "Login failed. Please try again.";
+        document.getElementById("loginMessage").style.color = "red";
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      document.getElementById("loginMessage").innerHTML = "An error occurred. Please try again.";
+      document.getElementById("loginMessage").style.color = "red";
+    });
+  }
+
+  // Fungsi untuk menutup modal
+  function closeModal() {
+    document.getElementById("adminLoginModal").style.display = "none";
+    document.body.classList.remove('modal-open');
+  }
+
+  // Check login status on page load
+  fetch('/admin/check-login')
+  .then(response => response.json())
+  .then(data => {
+    if (data.isLoggedIn) {
+      document.getElementById("adminDropdown").style.display = "block";
+      document.getElementById("loginButton").style.display = "none";
+    }
+  });
+</script>
+</body>
+
+</html>

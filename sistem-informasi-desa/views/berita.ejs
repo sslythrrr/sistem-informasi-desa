@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita Desa Tegal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
+    <link rel="stylesheet" href="fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="css/aos.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/Articles-Cards-images.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary-color: #072e48;
+            --secondary-color: #0a4d7a;
+            --accent-color: #f0a500;
+            --text-color: #333;
+            --bg-color: #f0f2f5;
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" class="berita-page">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-shrink" id="mainNav" style="color: rgb(255,131,131);background: #072e48;border-color: var(--bs-code-color);--bs-primary: #221e12;--bs-primary-rgb: 34,30,18;">
+        <div class="container">
+            <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="d-flex align-items-center">
+                <img id="navLogo" class="img-fluid" src="img/logo_pemkab_bogor.png" width="40" height="40">
+                <div class="ms-2 nav-text-container">
+                    <div id="navTextTop">KECAMATAN KEMANG</div>
+                    <div id="navTextBottom">KABUPATEN BOGOR</div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#layanan" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;">
+                            Profil Desa
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item active" href="#sejarah-desa">Sejarah Desa</a></li>
+                            <li><a class="dropdown-item" href="/visimisi">Visi dan Misi</a></li>
+                            <li><a class="dropdown-item" href="/struktur">Struktur Organisasi</a></li>
+                            <li><a class="dropdown-item" href="/demografi">Demografi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#kegiatan">Kegiatan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#berita" style="color: rgb(212,237,49);">Berita</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#lokasi">Lokasi</a></li>
+                    <% if (isAdmin) { %>
+                                          <li class="nav-item dropdown" id="adminDropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                              Admin
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+                                              <li><a class="dropdown-item" href="/admin/dashboard">Dashboard</a></li>
+                                              <li><a class="dropdown-item" href="/admin/logout">Logout</a></li>
+                                            </ul>
+                                          </li>
+                                        <% }%>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container" style="padding-bottom: 160px;">
+        <div id="berita-utama" style="padding-top: 80px;">
+            <h2 class="section-title">Berita Terbaru</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <% if (berita.length > 0) { %>
+                        <div class="news-card">
+                            <% if (berita[0].gambar) { %>
+                                <img src="data:image/jpeg;base64,<%= berita[0].gambar %>" alt="<%= berita[0].judul %>" class="img-fluid w-100">
+                            <% } %>
+                            <div class="card-body">
+                                <h3 class="card-title"><%= berita[0].judul %></h3>
+                                <p class="card-text text-muted"><i class="fas fa-calendar-alt me-2"></i><%= new Date(berita[0].tanggal).toLocaleDateString('id-ID') %></p>
+                                <p class="card-text"><%= berita[0].isi_singkat %>...</p>
+                                <a href="/berita/<%= berita[0].id %>" class="btn btn-custom">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card news-list-card">
+                        <div class="card-body">
+                            <h4 class="mb-3">List Berita</h4>
+                            <div class="news-list">
+                                <% berita.forEach(item => { %>
+                                    <div class="news-item mb-2">
+                                        <a href="/berita/<%= item.id %>" class="text-decoration-none">
+                                            <h6 class="news-title mb-1"><%= item.judul %></h6>
+                                            <p class="news-date mb-0"><small><i class="fas fa-calendar-alt me-1"></i><%= new Date(item.tanggal).toLocaleDateString('id-ID') %></small></p>
+                                        </a>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <div id="berita-terbaru" style="padding-top: 80px;">
+            <h2 class="section-title">Berita Lainnya</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <% for (let i = 0; i < berita.length; i++) { %>
+                    <div class="col">
+                        <div class="news-card h-100">
+                            <% if (berita[i].gambar) { %>
+                                <img src="data:image/jpeg;base64,<%= berita[i].gambar %>" class="card-img-top" alt="<%= berita[i].judul %>">
+                            <% } %>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= berita[i].judul %></h5>
+                                <p class="card-text text-muted"><small><i class="fas fa-calendar-alt me-2"></i><%= new Date(berita[i].tanggal).toLocaleDateString('id-ID') %></small></p>
+                                <a href="/berita/<%= berita[i].id %>" class="btn btn-custom btn-sm">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <footer class="py-3" style="color: rgb(255,255,255); background: #041d2d;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <span class="copyright">Copyright © Desa Tegal 2024</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
