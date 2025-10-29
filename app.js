@@ -112,8 +112,7 @@ app.post('/admin/login', (req, res) => {
 });
 
 function verifyPassword(password, hash) {
-  // Implementasi manual untuk verifikasi bcrypt
-  const bcrypt = require('bcryptjs'); // Gunakan bcryptjs sebagai alternatif
+  const bcrypt = require('bcryptjs');
   return bcrypt.compareSync(password, hash);
 }
 
