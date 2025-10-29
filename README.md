@@ -1,5 +1,5 @@
-#  Village Information System (Sistem Informasi Desa)
-
+#  Village Information System 
+## -- Sistem Informasi Desa --
 A web-based application designed to manage and display village information and services online. It aims to improve communication and service delivery between the village administration and its residents.
 
 ---
