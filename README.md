@@ -1,4 +1,4 @@
-# Sistem Informasi Desa (Village Information System)
+#  Village Information System (Sistem Informasi Desa)
 
 A web-based application designed to manage and display village information and services online. It aims to improve communication and service delivery between the village administration and its residents.
 
@@ -68,7 +68,6 @@ Before you begin, ensure you have the following installed on your system:
         DB_USER=your_db_user
         DB_PASSWORD=your_db_password
         DB_NAME=your_db_name
-        SESSION_SECRET=a_strong_random_secret_key
         PORT=3000
         ```
 
