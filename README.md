@@ -1,5 +1,6 @@
 #  Village Information System 
-## -- Sistem Informasi Desa --
+*Sistem Informasi Desa*
+
 A web-based application designed to manage and display village information and services online. It aims to improve communication and service delivery between the village administration and its residents.
 This project originally based on my case study (KKN) at Desa Tegal, Kemang, Kabupaten Bogor, Jawa Barat, Indonesia.
 
